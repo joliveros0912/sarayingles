@@ -1,1 +1,1 @@
-web: gunicorn saray.wsgi
+web: python manage.py collectstatic --noinput && gunicorn saray.wsgi
