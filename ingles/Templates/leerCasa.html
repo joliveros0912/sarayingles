@@ -1,0 +1,66 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Activity - The Mysterious House</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="{% static 'css/stl6.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        <h2>The Mysterious House</h2>
+        <p>
+            On top of a hill, there stood an old and mysterious house. 
+            Its windows looked like eyes that watched everything around it. 
+            Upon entering, the first thing you saw was a large living room, with a fireplace where the fire always burned.
+            To the right was the kitchen, where delicious cakes and hot soups were prepared.
+            Going up the stairs, you reached the bedrooms, where the beds invited you to dream.
+            At the end of the hall was the bathroom, with a large bathtub full of bubbles.
+            And outside, surrounding the house, was a beautiful garden, full of flowers of all colors and a swing that swayed with the wind.
+        </p>
+        
+        <h2>True or False Activity</h2>
+        <p>Read the text and answer the following questions:</p>
+
+        <div class="question">
+            <p>1. The bedrooms are for sleeping.</p>
+            <label><input type="radio" name="q1" value="True"> True</label>
+            <label><input type="radio" name="q1" value="False"> False</label>
+        </div>
+
+        <div class="question">
+            <p>2. The bathroom has a large pool.</p>
+            <label><input type="radio" name="q2" value="True"> True</label>
+            <label><input type="radio" name="q2" value="False"> False</label>
+        </div>
+
+        <div class="question">
+            <p>3. The house is located on a plain.</p>
+            <label><input type="radio" name="q3" value="True"> True</label>
+            <label><input type="radio" name="q3" value="False"> False</label>
+        </div>
+
+        <div class="question">
+            <p>4. The cakes are made in the kitchen.</p>
+            <label><input type="radio" name="q4" value="True"> True</label>
+            <label><input type="radio" name="q4" value="False"> False</label>
+        </div>
+
+        <div class="question">
+            <p>5. The garden has a swing.</p>
+            <label><input type="radio" name="q5" value="True"> True</label>
+            <label><input type="radio" name="q5" value="False"> False</label>
+        </div>
+
+        <button onclick="checkAnswerselect()">Check Answers</button>
+        <p id="result"></p>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

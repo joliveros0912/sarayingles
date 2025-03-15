@@ -1,0 +1,36 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>estaciones</title>
+    <link rel="stylesheet" href="{% static 'css/twilo.css' %}">
+</head>
+<body>
+    <div class="p1">
+        <div class="titulo"> <h1>The Seasons of the Year </h1></div>
+        <div class="medio">
+            <p class="parrafo">Spring: It's when the flowers begin to bloom, the birds sing, and everything is filled with color. It's as if nature has awakened from a long sleep!
+                Summer: It's very warm, the sun shines brightly, and it's the perfect time to play outdoors, go to the beach, and eat ice cream. 
+                Autumn: The leaves on the trees change color and fall, creating carpets of orange, red, and yellow hues. The weather gets cooler, and we prepare for winter.
+                Winter: It's very cold, sometimes it snows, and we bundle up with scarves and hats. It's a time to enjoy hot drinks, play in the snow, and spend time indoors.</p>
+            <div class="fantasma"></div>
+            <div class="contimg">
+                <img class="img1" src="{% static 'img/img1stations.jpeg' %}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="p2">
+        <h2>actividades</h2>
+        <nav class="men">
+            <ul>
+                <li class="lili"><a href="{% url 'escribirStations' %}"><img class="icons" src="{% static 'img/escribir.png' %}" alt=""></a></li>
+                <li class="lili"><a href="{% url 'leerStations' %}"><img class="icons" src="{% static 'img/leer.png' %}" alt=""></a></li>
+                <li class="lili"><a href="{% url 'escucharStations' %}"><img class="icons" src="{% static 'img/escucha.png' %}" alt=""></a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

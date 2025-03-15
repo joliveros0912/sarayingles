@@ -1,0 +1,36 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>estaciones</title>
+    <link rel="stylesheet" href="{% static 'css/twilo.css' %}">
+</head>
+<body>
+    <div class="p1">
+        <div class="titulo"> <h1>parts of the house </h1></div>
+        <div class="medio">
+            <p class="parrafo"> Our homes are like castles full of fun. We have the kitchen, where the most delicious meals are made and where it smells like freshly baked cookies! Then there's the living room, 
+                the perfect place to play, watch movies, and build pillow forts! <br>
+                We also have the bedroom, our dream haven, where we rest and prepare for new adventures! And we can't forget the bathroom, where we become water pirates and brush our teeth for a bright smile!
+            </p>
+            <div class="fantasma"></div>
+            <div class="contimg2">
+                <img class="img1" src="{% static 'img/img2casa.jpeg' %}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="p2">
+        <h2>actividades</h2>
+        <nav class="men">
+            <ul>
+                <li class="lili"><a href="{% url 'escribircasa' %}"><img class="icons" src="{% static 'img/escribir.png' %}" alt=""></a></li>
+                <li class="lili"><a href="{% url 'leercasa' %}"><img class="icons" src="{% static 'img/leer.png' %}" alt=""></a></li>
+                <li class="lili"><a href="{% url 'escucharcasa' %}"><img class="icons" src="{% static 'img/escucha.png' %}" alt=""></a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

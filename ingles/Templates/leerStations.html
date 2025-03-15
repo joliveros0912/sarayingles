@@ -1,0 +1,106 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Activity</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="{% static 'css/stl2.css' %}">
+
+</head>
+<body>
+
+    <h2>The Seasons of the Year</h2>
+    <p>
+        Our planet Earth has four very special seasons: <b>spring, summer, autumn, and winter</b>. 
+        Each season is different and brings us wonderful things.
+    </p>
+    <p>
+        In <b>spring</b>, everything is filled with color. Flowers begin to bloom, birds sing, and the weather becomes warmer. 
+        It's as if nature is awakening from a long sleep!
+    </p>
+    <p>
+        Then comes <b>summer</b>, the hottest season of the year. The sun shines brightly, the days are long, and the nights are short. 
+        It's perfect for going to the beach and eating ice cream.
+    </p>
+    <p>
+        Then, the leaves on the trees change color and fall in <b>autumn</b>. The orange, red, and yellow hues create a beautiful landscape. 
+        The weather becomes cooler.
+    </p>
+    <p>
+        Finally, <b>winter</b> arrives, the coldest season. Sometimes it snows, and we bundle up with scarves and hats. 
+        It's time to drink hot drinks and play in the snow.
+    </p>
+
+    <h3>Answer True or False</h3>
+    <form method="post">
+        {% csrf_token %}
+        
+        <label>1. In summer, the days are short and the nights are long.</label>
+        <select name="q1" required>
+            <option value="" selected disabled>Choose an answer</option>
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </select> <br><br>
+
+        <label>2. In autumn, the weather gets cooler.</label>
+        <select name="q2" required>
+            <option value="" selected disabled>Choose an answer</option>
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </select> <br><br>
+
+        <label>3. In winter, it sometimes snows.</label>
+        <select name="q3" required>
+            <option value="" selected disabled>Choose an answer</option>
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </select> <br><br>
+
+        <label>4. The Earth has five seasons.</label>
+        <select name="q4" required>
+            <option value="" selected disabled>Choose an answer</option>
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </select> <br><br>
+
+        <label>5. The sun shines brightly in summer.</label>
+        <select name="q5" required>
+            <option value="" selected disabled>Choose an answer</option>
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </select> <br><br>
+
+        <button type="submit">Check Answers</button>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            {% if resultados %}
+                let mensajes = [];
+                {% for i in resultados %}
+                    mensajes.push("{% if i %}✅ Correcto{% else %}❌ Incorrecto{% endif %}");
+                {% endfor %}
+                
+                Swal.fire({
+                    title: "Your Results",
+                    width: 600,
+                    padding: "3em",
+                    color: "#716add",
+                    background: "#fff url(https://sweetalert2.github.io/images/trees.png)",
+                    backdrop: `
+                        rgba(0,0,123,0.4)
+                        url("https://sweetalert2.github.io/images/nyan-cat.gif")
+                        left top
+                        no-repeat
+                    `,
+                    html: mensajes.join("<br>"),
+                    icon: "info"
+                });
+            {% endif %}
+        });
+    </script>
+
+</body>
+</html>

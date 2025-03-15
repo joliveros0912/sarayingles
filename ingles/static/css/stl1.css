@@ -1,0 +1,93 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: rgb(221, 231, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Contenedor principal */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Formulario */
+form p {
+    font-size: 1.2em;
+    margin: 15px 0;
+}
+
+input {
+    border: 2px solid #888;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1em;
+    width: 120px;
+    text-align: center;
+}
+
+input:focus {
+    border-color: #716add;
+    outline: none;
+}
+
+/* Botón */
+.btn {
+    background-color: #716add;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #574bb5;
+}
+
+/* Glosario */
+.glossary {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+}
+
+.glossary h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.glossary ul {
+    list-style: none;
+    padding: 0;
+}
+
+.glossary li {
+    font-size: 1.2em;
+    margin: 5px 0;
+}

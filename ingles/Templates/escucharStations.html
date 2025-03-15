@@ -1,0 +1,140 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening Activity</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="{% static 'css/stl3.css' %}">
+
+    <style>
+        .container {
+            text-align: center;
+            margin: 20px;
+        }
+        .video-container {
+            margin-bottom: 20px;
+        }
+        .images-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            justify-content: center;
+        }
+        .image-box {
+            text-align: center;
+        }
+        .image-box img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+        }
+        input {
+            margin-top: 10px;
+            padding: 5px;
+            width: 80%;
+            text-align: center;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Listening Activity: The Seasons</h2>
+
+        <!-- 🎥 Video -->
+        <div class="video-container">
+            <video width="600" controls>
+                <source src="{% static 'img/stationsmp.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <h3>Write the correct season for each image</h3>
+
+        <!-- 🖼 8 Imágenes con input debajo -->
+        <form id="seasonForm">
+            <div class="images-container">
+                <div class="image-box">
+                    <img src="{% static 'img/1.jpeg' %}" alt="Image 1">
+                    <input type="text" name="answer1" placeholder="Enter season">
+                </div>
+                <div class="image-box">
+                    <img src="{% static 'img/3.jpeg' %}" alt="Image 2">
+                    <input type="text" name="answer2" placeholder="Enter season">
+                </div>
+                <div class="image-box">
+                    <img src="{% static 'img/5.jpeg' %}" alt="Image 3">
+                    <input type="text" name="answer3" placeholder="Enter season">
+                </div>
+                <div class="image-box">
+                    <img src="{% static 'img/4.jpeg' %}" alt="Image 4">
+                    <input type="text" name="answer4" placeholder="Enter season">
+                </div>
+                <div class="image-box">
+                    <img src="{% static 'img/8.jpeg' %}" alt="Image 5">
+                    <input type="text" name="answer5" placeholder="Enter season">
+                </div>
+                <div class="image-box">
+                    <img src="{% static 'img/2.jpeg' %}" alt="Image 6">
+                    <input type="text" name="answer6" placeholder="Enter season">
+                </div>
+                <div class="image-box">
+                    <img src="{% static 'img/7.jpeg' %}" alt="Image 7">
+                    <input type="text" name="answer7" placeholder="Enter season">
+                </div>
+                <div class="image-box">
+                    <img src="{% static 'img/6.jpeg' %}" alt="Image 8">
+                    <input type="text" name="answer8" placeholder="Enter season">
+                </div>
+            </div>
+
+            <button type="button" onclick="checkAnswers()">Check Answers</button>
+        </form>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = ["winter", "autumn", "summer", "autumn", "spring", "winter", "spring", "summer"];
+            let inputs = document.querySelectorAll("input");
+            let resultados = [];
+    
+            inputs.forEach((input, index) => {
+                if (input.value.trim().toLowerCase() === correctAnswers[index].toLowerCase()) {
+                    resultados.push(`✅ ${index + 1}: Correct`);
+                } else {
+                    resultados.push(`❌ ${index + 1}: Incorrect`);
+                }
+            });
+    
+            Swal.fire({
+                title: "Your Results",
+                width: 600,
+                padding: "3em",
+                color: "#716add",
+                background: "#fff url(https://sweetalert2.github.io/images/trees.png)",
+                backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("https://sweetalert2.github.io/images/nyan-cat.gif")
+                    left top
+                    no-repeat
+                `,
+                html: resultados.join("<br>"),
+                icon: "info"
+            }).then(() => {
+                // Limpiar los campos después de cerrar la alerta
+                inputs.forEach(input => input.value = "");
+            });
+        }
+    </script>
+
+</body>
+</html>

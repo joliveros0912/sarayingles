@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ingles</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <div class="p1">
+        <h1 class="h1">social work</h1>
+    </div>
+    <div class="p2">
+        <nav class="menu">
+            <ul>
+                <li class="items">
+                    
+                    <a href="{% url 'estaciones' %}"><img class="imgmenu" src="{% static 'img/iconoEstaciones.jpeg' %}" alt=""><h2 class="h2Cont"> seasons of the year </h2></a>
+                </li>
+                <li class="items">
+                    <a href="{% url 'casa' %}"><img class="imgmenu" src="{% static 'img/iconoCasa.jpeg' %}" alt=""><h2 class="h2Cont"> parts of the house </h2></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

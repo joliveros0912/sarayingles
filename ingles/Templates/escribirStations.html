@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasons Activity</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/stl1.css' %}">
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Complete the Text with the Correct Words</h1>
+        
+        <!-- Formulario de actividad -->
+        <form method="post">
+            {% csrf_token %}
+            <p>Our planet Earth has four very special seasons: 
+                <input type="text" name="season1">, 
+                <input type="text" name="season2">, 
+                <input type="text" name="season3">, and 
+                <input type="text" name="season4">. 
+                Each season is different and brings us wonderful things.
+            </p>
+        
+            <p>In <input type="text" name="season5">, everything fills with color. 
+                The <input type="text" name="word1"> begin to bloom, the 
+                <input type="text" name="word2"> sing, and the weather becomes warmer.
+            </p>
+        
+            <p>Then comes <input type="text" name="season6">, the hottest season of the year. 
+                The <input type="text" name="word3"> shines brightly, the days are long, and the nights are short. 
+                It's perfect for going to the <input type="text" name="word4"> and eating 
+                <input type="text" name="word5">.
+            </p>
+        
+            <p>Afterward, the leaves on the trees change color and fall in <input type="text" name="season7">. 
+                The orange, red, and yellow hues create a beautiful landscape. The weather turns 
+                <input type="text" name="word6">.
+            </p>
+        
+            <p>Finally, <input type="text" name="season8">, the coldest season, arrives. 
+                Sometimes <input type="text" name="word7">, and we bundle up with scarves and hats. 
+                It's time to drink hot drinks and play in the snow.
+            </p>
+        
+            <button type="submit" class="btn">Check Answers</button>
+        </form>
+
+        <!-- Glosario -->
+        <div class="glossary">
+            <h2>Glossary</h2>
+            <ul>
+                <li><strong>Spring:</strong> Flowers, Birds</li>
+                <li><strong>Summer:</strong> Sun, Beach, Ice cream</li>
+                <li><strong>Autumn/Fall:</strong> Cool</li>
+                <li><strong>Winter:</strong> Snow</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SweetAlert2 Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            {% if resultados %}
+                let mensajes = [];
+                {% for i in resultados %}
+                    mensajes.push("{% if i %}✅ Correcto{% else %}❌ Incorrecto{% endif %}");
+                {% endfor %}
+                
+                Swal.fire({
+                    title: "Resultados de tu actividad",
+                    width: 600,
+                    padding: "3em",
+                    color: "#716add",
+                    background: "#fff url(https://sweetalert2.github.io/images/trees.png)",
+                    backdrop: `
+                        rgba(0,0,123,0.4)
+                        url("https://sweetalert2.github.io/images/nyan-cat.gif")
+                        left top
+                        no-repeat
+                    `,
+                    html: mensajes.join("<br>"),
+                    icon: "info"
+                });
+            {% endif %}
+        });
+    </script>
+
+</body>
+</html>
