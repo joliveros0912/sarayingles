@@ -19,7 +19,7 @@
         
         <!-- Formulario de actividad -->
         <form method="post">
-            
+            {% csrf_token %}
             <p>Our planet Earth has four very special seasons: 
                 <input type="text" name="season1">, 
                 <input type="text" name="season2">, 
