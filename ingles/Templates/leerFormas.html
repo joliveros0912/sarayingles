@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Activity - The Shapes Play in the Park</title>
+    <link rel="stylesheet" href="{% static 'css/stl6.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Read the text and answer True or False:</h2>
+        <p>
+            <strong>The Shapes Play in the Park</strong><br><br>
+            Circle rolled happily. Square walked firmly. Triangle hopped happily. Rectangle slid smoothly. 
+            They were friends and loved to play in the Shapes Park.<br><br>
+            In the park, they saw Oval and Star. They played hide-and-seek behind the round trees and built a tall tower with the square blocks. 
+            Triangle climbed a pointy slide. Rectangle found a long swing.<br><br>
+            Even though they were different, they had a lot of fun together. 
+            Circle rolled fast, Square made strong bases, Triangle pointed high, and Rectangle was long. 
+            Being different made them a great team!
+        </p>
+
+        <h2>True or False Activity</h2>
+
+        <div class="question">
+            <p>1. Rectangle and Square are exactly the same.</p>
+            <label><input type="radio" name="q1" value="True"> True</label>
+            <label><input type="radio" name="q1" value="False"> False</label>
+        </div>
+
+        <div class="question">
+            <p>2. Oval has the same shape as a perfect circle.</p>
+            <label><input type="radio" name="q2" value="True"> True</label>
+            <label><input type="radio" name="q2" value="False"> False</label>
+        </div>
+
+        <div class="question">
+            <p>3. Star has points.</p>
+            <label><input type="radio" name="q3" value="True"> True</label>
+            <label><input type="radio" name="q3" value="False"> False</label>
+        </div>
+
+        <div class="question">
+            <p>4. They played hide-and-seek behind square trees.</p>
+            <label><input type="radio" name="q4" value="True"> True</label>
+            <label><input type="radio" name="q4" value="False"> False</label>
+        </div>
+
+        <div class="question">
+            <p>5. They built a tower with triangular blocks.</p>
+            <label><input type="radio" name="q5" value="True"> True</label>
+            <label><input type="radio" name="q5" value="False"> False</label>
+        </div>
+
+        <button onclick="checkAnswerselect()">Check Answers</button>
+        <p id="result"></p>
+    </div>
+
+    <script src="{% static 'js/scriptreading2.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Colors</title>
+    <link rel="stylesheet" href="{% static 'css/stl5.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Read the text and answer the True or False questions</h2>
+
+        <div class="texto-lectura">
+            <h3>The Little Rainbow</h3>
+            <p>
+                Drop was a raindrop in a gray world. One day, the sun shone on her, and poof! She became a little rainbow. She had bright colors: red, orange, yellow, green, blue, and violet.<br><br>
+                Rainbow hopped and touched the gray things. And color appeared! The trees were green, the flowers red and yellow, the houses blue. Everyone was happy with the new colors.<br><br>
+                Rainbow played all day. In the end, her colors faded, and she became Drop again. But the world was no longer gray, it was full of color thanks to her visit!
+            </p>
+        </div>
+
+        <div class="preguntas">
+            <p>1. The world was colorful at the beginning. 
+                <select id="q1">
+                    <option value="">Select</option>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+            </p>
+
+            <p>2. Drop became a rainbow with the sunlight. 
+                <select id="q2">
+                    <option value="">Select</option>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+            </p>
+
+            <p>3. The rainbow had only three colors. 
+                <select id="q3">
+                    <option value="">Select</option>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+            </p>
+
+            <p>4. The rainbow made the gray things have color. 
+                <select id="q4">
+                    <option value="">Select</option>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+            </p>
+
+            <p>5. In the end, the world went back to being gray.
+                <select id="q5">
+                    <option value="">Select</option>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+            </p>
+        </div>
+
+        <button onclick="checkReadColors()">Check Answers</button>
+        <p id="resultreadcolors"></p>
+    </div>
+
+    <script src="{% static 'js/scriptreadcolors.js' %}"></script>
+</body>
+</html>

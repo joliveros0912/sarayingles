@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors</title>
+    <link rel="stylesheet" href="{% static 'css/twilo.css' %}">
+</head>
+<body>
+    <div class="p1">
+        <div class="titulo">
+            <h1>Colors</h1>
+        </div>
+        <div class="medio">
+            <p class="parrafo">
+                We are going to explore a super fun and lively world: the world of colors! Look around you, what do you see? Lots of different colors! Colors are everywhere: in our clothes, in our toys, in yummy food, and in nature.
+                <br><br>
+                Yellow: amarillo<br>
+                Green: verde<br>
+                Blue: azul<br>
+                Red: rojo<br>
+                Orange: naranja
+            </p>
+            <div class="fantasma"></div>
+            <div class="contimg">
+                <img class="img1" src="{% static 'img/11.jpeg' %}" alt="colors image">
+            </div>
+        </div>
+    </div>
+    
+    <div class="p2">
+        <h2>Activities</h2>
+        <nav class="men">
+            <ul>
+                <li class="lili"><a href="{% url 'escribircolors' %}"><img class="icons" src="{% static 'img/escribir.png' %}" alt=""></a></li>
+                <li class="lili"><a href="{% url 'leercolors' %}"><img class="icons" src="{% static 'img/leer.png' %}" alt=""></a></li>
+                <li class="lili"><a href="{% url 'escucharcolors' %}"><img class="icons" src="{% static 'img/escucha.png' %}" alt=""></a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

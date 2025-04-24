@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapes</title>
+    <link rel="stylesheet" href="{% static 'css/twilo.css' %}">
+</head>
+<body>
+    <div class="p1">
+        <div class="titulo">
+            <h1>The Shapes</h1>
+        </div>
+        <div class="medio">
+            <p class="parrafo">
+                These are flat surfaces delimited by lines that can be curved or straight. Basic geometric shapes include: circle, square, rectangle, triangle, and oval.
+                <br><br>
+                Circle: círculo<br>
+                Square: cuadrado<br>
+                Rectangle: rectángulo<br>
+                Triangle: triángulo<br>
+                Pentagon: pentágono
+            </p>
+            <div class="fantasma"></div>
+            <div class="contimg">
+                <img class="img1" src="{% static 'img/10.jpeg' %}" alt="shapes image">
+            </div>
+        </div>
+    </div>
+    
+    <div class="p2">
+        <h2>Activities</h2>
+        <nav class="men">
+            <ul>
+                <li class="lili"><a href="{% url 'escribirShapes' %}"><img class="icons" src="{% static 'img/escribir.png' %}" alt=""></a></li>
+                <li class="lili"><a href="{% url 'leerformas' %}"><img class="icons" src="{% static 'img/leer.png' %}" alt=""></a></li>
+                <li class="lili"><a href="{% url 'escucharformas' %}"><img class="icons" src="{% static 'img/escucha.png' %}" alt=""></a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

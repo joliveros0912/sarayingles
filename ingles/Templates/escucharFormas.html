@@ -1,0 +1,120 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening Activity - Shapes</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(221, 231, 255);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 700px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Títulos */
+        h2 {
+            color: #2c3e50;
+        }
+
+        /* Contenedor del video */
+        .video-container {
+            margin: 20px auto;
+        }
+
+        .video-container video {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        /* Inputs */
+        input {
+            width: 200px;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Botón */
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #217dbb;
+        }
+
+        /* Resultado */
+        #resultvideo {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Complete the Words - Listening Activity</h2>
+
+        <!-- 🎥 Video local -->
+        <div class="video-container">
+            <video controls>
+                <source src="{% static 'img/formas.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="questions">
+            <p>The sun is shaped like a <input type="text" id="s1" placeholder="Type your answer..."></p>
+            <p>The window is shaped like a <input type="text" id="s2" placeholder="Type your answer..."></p>
+            <p>This shape has three sides a <input type="text" id="s3" placeholder="Type your answer..."></p>
+            <p>The door is shaped like a <input type="text" id="s4" placeholder="Type your answer..."></p>
+        </div>
+
+        <button onclick="checkAnswervideo()">Check Answers</button>
+        <p id="resultvideo"></p>
+    </div>
+
+    <script src="{% static 'js/scriptlistening2.js' %}"></script>
+</body>
+</html>

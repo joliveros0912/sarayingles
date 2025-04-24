@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write Colors</title>
+    <link rel="stylesheet" href="{% static 'css/stl5.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Complete the text with the words from the glossary</h2>
+
+        <p><strong>Glossary:</strong> Yellow, Green, Blue, Red, Purple, White, Violet, Colors, Color</p>
+
+        <div class="texto-completar">
+            <p>Colors Are Amazing</p>
+            <p><input type="text" id="w1"> is the color of the sun. The leaves on the trees are <input type="text" id="w2">. The sky on a nice day is <input type="text" id="w3">. Delicious strawberries are <input type="text" id="w4">.</p>
+            <p>There are also other colors like <input type="text" id="w5">, which we sometimes see in grapes. The color of snow is <input type="text" id="w6">. If we mix red and blue, we get <input type="text" id="w7">.</p>
+            <p><input type="text" id="w8"> are everywhere and make the world more fun! What is your favorite <input type="text" id="w9">?</p>
+        </div>
+
+        <button onclick="checkAnswerColors()">Check Answers</button>
+        <p id="resultcolors"></p>
+    </div>
+
+    <script src="{% static 'js/scriptwritecolors.js' %}"></script>
+</body>
+</html>

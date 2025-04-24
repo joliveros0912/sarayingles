@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete the Words - Shapes</title>
+    <link rel="stylesheet" href="{% static 'css/stl4.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        .flex-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .glossary {
+            flex: 1;
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .activity {
+            flex: 2;
+        }
+
+        .glossary h3 {
+            margin-top: 0;
+        }
+
+        .styled-list {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        input[type="text"] {
+            width: 100px;
+            padding: 5px;
+            margin: 3px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Complete the words</h2>
+
+    <div class="flex-container">
+        <!-- Glosario -->
+        <div class="glossary">
+            <h3>Glossary</h3>
+            <ul class="styled-list">
+                <li>Sun</li>
+                <li>Box</li>
+                <li>Shape</li>
+                <li>Square</li>
+                <li>Rectangle</li>
+                <li>Circle</li>
+                <li>Star</li>
+                <li>Shapes</li>
+            </ul>
+        </div>
+
+        <!-- Actividad -->
+        <div class="activity">
+            <p>Do you see a <input type="text" id="s1">? It's a shape! And a <input type="text" id="s2">? Another shape! Everything has a <input type="text" id="s3">.</p>
+
+            <p>There are shapes with straight sides. A <input type="text" id="s4"> has four equal sides. A <input type="text" id="s5"> also has four sides.</p>
+
+            <p>There are round shapes like the <input type="text" id="s6">. It spins and spins! And there are pointy shapes like the <input type="text" id="s7">. It shines a lot!</p>
+
+            <p>Every <input type="text" id="s8"> is different. Learning about shapes is great! We can draw <input type="text" id="s9"> and find shapes everywhere. What shape do you like best?</p>
+
+            <button onclick="checkAnswers()">Check Answers</button>
+            <p id="resultselect"></p>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/scriptShapes.js' %}"></script>
+
+</body>
+</html>

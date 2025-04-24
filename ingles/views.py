@@ -11,6 +11,12 @@ def estaciones(request):
 def casa(request):
     return render(request, 'casa.html')
 
+def formas(request):
+    return render(request, 'formas.html')
+
+def colores(request):
+    return render(request, 'colores.html')
+
 #estaciones actividades 
 #escribir
 def escribirStations(request):
@@ -83,3 +89,28 @@ def leercasa(request):
 
 def escucharcasa(request):
     return render(request, 'escucharCasa.html')
+
+
+# escribirShapes
+def escribirShapes(request):
+    return render(request, "escribirShapes.html")
+
+# leerShapes
+def leerformas(request):
+    return render(request, "leerFormas.html")
+
+# escucharShapes
+def escucharformas(request):
+    return render(request, "escucharFormas.html")
+
+# escribircolors
+def escribircolors(request):
+    return render(request, "escribirColors.html")
+
+# leercolors
+def leercolors(request):
+    return render(request, "leerColors.html")
+
+# escucharcolors
+def escucharcolors(request):
+    return render(request, "escucharColors.html")
