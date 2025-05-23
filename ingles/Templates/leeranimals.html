@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reading Activity - Animals</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="{% static 'css/stl2.css' %}"/>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h2, h3 {
+      color: #333;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    select {
+      margin-top: 5px;
+      margin-bottom: 20px;
+      padding: 5px;
+      width: 200px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Reading Activity - Animals</h2>
+
+  <p>
+    Animals are part of our everyday lives. Some live in our homes, like dogs and cats, while others live in the wild, like lions and elephants.
+    Dogs are loyal and love to be around people. They bark, run, and play. Cats are quiet and like to sleep in warm places.
+    They also enjoy being near their owners. Birds are small animals that can fly and sing.
+    Many people keep birds as pets because of their beautiful colors and songs.
+  </p>
+
+  <h3>Answer True or False</h3>
+
+  <form id="quizForm">
+    <label>1. Dogs like to be with people.</label><br>
+    <select id="q1" required>
+      <option value="" selected disabled>Choose an answer</option>
+      <option value="True">True</option>
+      <option value="False">False</option>
+    </select><br>
+
+    <label>2. Cats are very noisy.</label><br>
+    <select id="q2" required>
+      <option value="" selected disabled>Choose an answer</option>
+      <option value="True">True</option>
+      <option value="False">False</option>
+    </select><br>
+
+    <label>3. Birds can fly and sing.</label><br>
+    <select id="q3" required>
+      <option value="" selected disabled>Choose an answer</option>
+      <option value="True">True</option>
+      <option value="False">False</option>
+    </select><br>
+
+    <label>4. Lions live in houses.</label><br>
+    <select id="q4" required>
+      <option value="" selected disabled>Choose an answer</option>
+      <option value="True">True</option>
+      <option value="False">False</option>
+    </select><br>
+
+    <label>5. Many people have birds as pets.</label><br>
+    <select id="q5" required>
+      <option value="" selected disabled>Choose an answer</option>
+      <option value="True">True</option>
+      <option value="False">False</option>
+    </select><br>
+
+    <button type="button" onclick="checkReadingAnswers()">Check Answers</button>
+  </form>
+
+  <script>
+    function checkReadingAnswers() {
+      const correctAnswers = {
+        q1: "True",
+        q2: "False",
+        q3: "True",
+        q4: "False",
+        q5: "True"
+      };
+
+      let correctCount = 0;
+      let messages = [];
+
+      for (let i = 1; i <= 5; i++) {
+        const selected = document.getElementById('q' + i).value;
+        const correct = correctAnswers['q' + i];
+
+        if (selected === correct) {
+          correctCount++;
+          messages.push(`✅ Question ${i}: Correct`);
+        } else {
+          messages.push(`❌ Question ${i}: Incorrect (Correct: ${correct})`);
+        }
+      }
+
+      Swal.fire({
+        title: "Your Results",
+        width: 600,
+        padding: "3em",
+        color: "#716add",
+        background: "#fff url(https://sweetalert2.github.io/images/trees.png)",
+        backdrop: `
+          rgba(0,0,123,0.4)
+          url("https://sweetalert2.github.io/images/nyan-cat.gif")
+          left top
+          no-repeat
+        `,
+        html: messages.join("<br>"),
+        icon: "info"
+      });
+    }
+  </script>
+
+</body>
+</html>

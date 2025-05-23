@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals</title>
+    <link rel="stylesheet" href="{% static 'css/twilo.css' %}">
+</head>
+<body>
+    <div class="p1">
+        <div class="titulo">
+            <h1>Animals</h1>
+        </div>
+        <div class="medio">
+            <p class="parrafo">
+                Animals are an important part of our environment, and learning their names in another language helps us expand our vocabulary and understanding of the natural world.
+                <br><br>
+                In this lesson, we will explore the names of various animals in English and Spanish. From common pets like the dog (perro)and cat (gato)
+                 to wild animals like the lion (león) and elephant (elefante).
+            </p>
+            <div class="fantasma"></div>
+            <div class="contimg">
+                <img class="img1" src="{% static 'img/13.jpeg' %}" alt="animals image">
+            </div>
+        </div>
+    </div>
+    
+    <div class="p2">
+        <h2>Activities</h2>
+        <nav class="men">
+            <ul>
+                <li class="lili"><a href="{% url 'escribiranumals' %}"><img class="icons" src="{% static 'img/escribir.png' %}" alt=""></a></li>
+                <li class="lili"><a href="{% url 'leeranimals' %}"><img class="icons" src="{% static 'img/leer.png' %}" alt=""></a></li>
+                <li class="lili"><a href="{% url 'escucharanimals' %}"><img class="icons" src="{% static 'img/escucha.png' %}" alt=""></a></li>
+            </ul>
+        </nav>
+    </div>
+</body>  
+</html>

@@ -1,0 +1,119 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening Activity: Animals</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="{% static 'css/stl3.css' %}">
+
+    <style>
+        .container {
+            text-align: center;
+            margin: 20px;
+        }
+        .video-container {
+            margin-bottom: 20px;
+        }
+        .images-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .image-box {
+            text-align: center;
+        }
+        .image-box img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+        }
+        input {
+            margin-top: 10px;
+            padding: 5px;
+            width: 80%;
+            text-align: center;
+        }
+        button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Listening Activity: Animals</h2>
+
+        <!-- 🎥 Video -->
+        <div class="video-container">
+            <video width="600" controls>
+                <source src="{% static 'img/animals.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <h3>Write the correct name of the animal</h3>
+
+        <!-- 🖼 3 Imágenes con input -->
+        <form id="animalForm">
+            <div class="images-container">
+                <div class="image-box">
+                    <img src="{% static 'img/1.3.jpeg' %}" alt="Shark">
+                    <input type="text" name="animal1" placeholder="Enter name">
+                </div>
+                <div class="image-box">
+                    <img src="{% static 'img/1.1.jpeg' %}" alt="Sheep">
+                    <input type="text" name="animal2" placeholder="Enter name">
+                </div>
+                <div class="image-box">
+                    <img src="{% static 'img/1.2.jpeg' %}" alt="Rabbit">
+                    <input type="text" name="animal3" placeholder="Enter name">
+                </div>
+            </div>
+
+            <button type="button" onclick="checkAnswers()">Check Answers</button>
+        </form>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = ["shark", "sheep", "rabbit"];
+            let inputs = document.querySelectorAll("input");
+            let results = [];
+
+            inputs.forEach((input, index) => {
+                if (input.value.trim().toLowerCase() === correctAnswers[index]) {
+                    results.push(`✅ ${index + 1}: Correct`);
+                } else {
+                    results.push(`❌ ${index + 1}: Incorrect`);
+                }
+            });
+
+            Swal.fire({
+                title: "Your Results",
+                width: 600,
+                padding: "3em",
+                color: "#716add",
+                background: "#fff url(https://sweetalert2.github.io/images/trees.png)",
+                backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("https://sweetalert2.github.io/images/nyan-cat.gif")
+                    left top
+                    no-repeat
+                `,
+                html: results.join("<br>"),
+                icon: "info"
+            }).then(() => {
+                inputs.forEach(input => input.value = "");
+            });
+        }
+    </script>
+
+</body>
+</html>

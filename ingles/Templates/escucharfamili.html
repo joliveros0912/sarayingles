@@ -1,0 +1,161 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuchar en Inglés - Familia</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(221, 231, 255);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        .video-container {
+            margin: 20px auto;
+        }
+
+        .video-container video {
+            width: 100%;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        input {
+            width: 250px;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #217dbb;
+        }
+
+        #resultvideo {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Escuchar en Inglés - Actividad sobre la Familia</h2>
+
+        <div class="video-container">
+            <video controls>
+                <source src="{% static 'img/familia.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="questions">
+            <p>1. How many members are there in her family? <br>
+                <input type="text" id="q1" placeholder="Type your answer...">
+            </p>
+
+            <p>2. Which member of her family is a teacher? <br>
+                <input type="text" id="q2" placeholder="Type your answer...">
+            </p>
+
+            <p>3. Which member of her family is a nurse? <br>
+                <input type="text" id="q3" placeholder="Type your answer...">
+            </p>
+
+            <p>4. With which member of her family does she watch TV? <br>
+                <input type="text" id="q4" placeholder="Type your answer...">
+            </p>
+        </div>
+
+        <button onclick="checkAnswerListening()">Check Answers</button>
+        <p id="resultvideo"></p>
+    </div>
+
+    <script>
+        function checkAnswerListening() {
+            const answers = {
+                q1: "four",
+                q2: "father",
+                q3: "mother",
+                q4: "brother"
+            };
+
+            let correct = 0;
+
+            for (let key in answers) {
+                const userInput = document.getElementById(key).value.trim().toLowerCase();
+                if (userInput === answers[key]) {
+                    correct++;
+                }
+            }
+
+            if (correct === 4) {
+                Swal.fire({
+                    title: 'Well done!',
+                    text: 'You got all answers correct!',
+                    imageUrl: 'https://media.tenor.com/LLnAx9N1R1kAAAAi/cute-cat.gif',
+                    imageWidth: 200,
+                    imageHeight: 200,
+                    imageAlt: 'cat gif',
+                    confirmButtonText: 'Yay!'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Try Again!',
+                    text: `You got ${correct} out of 4 correct.`,
+                    imageUrl: 'https://media.tenor.com/OyUVuZQm1KUAAAAi/cat-typing.gif',
+                    imageWidth: 200,
+                    imageHeight: 200,
+                    imageAlt: 'cat gif',
+                    confirmButtonText: 'Okay'
+                });
+            }
+        }
+    </script>
+</body>
+</html>

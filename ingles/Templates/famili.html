@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family</title>
+    <link rel="stylesheet" href="{% static 'css/twilo.css' %}">
+</head>
+<body>
+    <div class="p1">
+        <div class="titulo">
+            <h1>The Family</h1>
+        </div>
+        <div class="medio">
+            <p class="parrafo">
+                Family vocabulary in English is very important when you start learning the language. With these words, we can say who the people in our family are, like mom, dad, brother, or grandmother. Learning these words helps us talk about ourselves and get to know other people.
+                <br><br>
+                Mi mamá es muy linda<br>
+                My mom is very pretty<br><br>
+                Mi papá tiene 38 años<br>
+                My dad is 38 years old
+            </p>
+            <div class="fantasma"></div>
+            <div class="contimg">
+                <img class="img1" src="{% static 'img/12.jpeg' %}" alt="family image">
+            </div>
+        </div>
+    </div>
+
+    <div class="p2">
+        <h2>Activities</h2>
+        <nav class="men">
+            <ul>
+                <li class="lili"><a href="{% url 'escribirfamili' %}"><img class="icons" src="{% static 'img/escribir.png' %}" alt=""></a></li>
+                <li class="lili"><a href="{% url 'leerfamili' %}"><img class="icons" src="{% static 'img/leer.png' %}" alt=""></a></li>
+                <li class="lili"><a href="{% url 'escucharfamili' %}"><img class="icons" src="{% static 'img/escucha.png' %}" alt=""></a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

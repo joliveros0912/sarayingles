@@ -1,0 +1,191 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escribir - Family</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .p1 {
+            padding: 20px;
+            background-color: #ffffff;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .titulo h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        .medio {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .parrafo {
+            margin-bottom: 30px;
+        }
+
+        .input {
+            width: 120px;
+            padding: 6px;
+            margin: 3px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .glosario {
+            background-color: #e9f5ff;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .glosario h3 {
+            margin-top: 0;
+            color: #0077b6;
+        }
+
+        .glosario ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .glosario li {
+            margin: 4px 0;
+        }
+
+        .boton {
+            text-align: center;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 600px) {
+            .input {
+                width: 90px;
+                font-size: 0.9rem;
+            }
+
+            .titulo h1 {
+                font-size: 2rem;
+            }
+
+            .medio {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="p1">
+        <div class="titulo">
+            <h1>Escribir</h1>
+        </div>
+        <div class="medio">
+            <p class="parrafo">
+                According to what you read previously, read and answer the questions.
+                <br><br>
+                Hi, my name is Lucas and this is my family. I live with my 
+                <input type="text" class="input" id="i1"> and my 
+                <input type="text" class="input" id="i2">.<br><br>
+                My <input type="text" class="input" id="i3"> is named Marta. She is 10 years old and likes to draw. 
+                I also have an older <input type="text" class="input" id="i4"> named Diego.<br><br>
+                On weekends, we visit my grandparents. My 
+                <input type="text" class="input" id="i5"> cooks very well and my 
+                <input type="text" class="input" id="i6"> always tells me funny stories.<br><br>
+                My <input type="text" class="input" id="i7"> Juan is my dad’s brother, and his wife, my 
+                <input type="text" class="input" id="i8"> Laura, is very nice.<br><br>
+                They have two children: my 
+                <input type="text" class="input" id="i9"> Pedro, who is 12 years old, and my 
+                <input type="text" class="input" id="i10"> Carla, who is my best friend.<br><br>
+                I love spending time with my family!
+            </p>
+
+            <div class="glosario">
+                <h3>Glossary</h3>
+                <ul>
+                    <li>mom</li>
+                    <li>dad</li>
+                    <li>sister</li>
+                    <li>brother</li>
+                    <li>grandmother</li>
+                    <li>grandfather</li>
+                    <li>uncle</li>
+                    <li>aunt</li>
+                    <li>cousin</li>
+                </ul>
+            </div>
+
+            <div class="boton">
+                <button onclick="verificar()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function verificar() {
+            const respuestas = [
+                "mom", "dad", "sister", "brother",
+                "grandmother", "grandfather", "uncle", "aunt",
+                "cousin", "cousin"
+            ];
+
+            let correctas = 0;
+            for (let i = 1; i <= 10; i++) {
+                const valor = document.getElementById(`i${i}`).value.trim().toLowerCase();
+                if (valor === respuestas[i - 1]) {
+                    correctas++;
+                }
+            }
+
+            if (correctas === 10) {
+                Swal.fire({
+                    title: "Well done!",
+                    text: "All your answers are correct.",
+                    icon: "success"
+                });
+            } else {
+                Swal.fire({
+                    title: "Try again!",
+                    text: `You got ${correctas} out of 10 correct.`,
+                    icon: "error"
+                });
+            }
+        }
+    </script>
+</body>
+</html>

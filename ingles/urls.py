@@ -19,6 +19,14 @@ urlpatterns = [
     path('escribircolors/', views.escribircolors, name='escribircolors'),
     path('leercolors/', views.leercolors, name='leercolors'),
     path('escucharcolors/', views.escucharcolors, name='escucharcolors'),
+    path('famili/', views.famili, name='famili'),
+    path('escribirfamili/', views.escribirfamili, name='escribirfamili'),
+    path('leerfamili/', views.leerfamili, name='leerfamili'),
+    path('escucharfamili/', views.escucharfamili, name='escucharfamili'),
+    path('animals/', views.animals, name='animals'),
+    path('escribiranumals/', views.escribiranumals, name='escribiranumals'),
+    path('leeranimals/', views.leeranimals, name='leeranimals'),
+    path('escucharanimals/', views.escucharanimals, name='escucharanimals'),
 
 
 ]

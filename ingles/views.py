@@ -14,8 +14,15 @@ def casa(request):
 def formas(request):
     return render(request, 'formas.html')
 
+def famili(request):
+    return render(request, 'famili.html')
+
 def colores(request):
     return render(request, 'colores.html')
+
+def animals(request):
+    return render(request, 'animals.html')
+
 
 #estaciones actividades 
 #escribir
@@ -114,3 +121,31 @@ def leercolors(request):
 # escucharcolors
 def escucharcolors(request):
     return render(request, "escucharColors.html")
+
+
+
+
+# escribirfamili
+def escribirfamili(request):
+    return render(request, "escribirfamili.html")
+
+# leerfamili
+def leerfamili(request):
+    return render(request, "leerfamili.html")
+
+# escucharcolors
+def escucharfamili(request):
+    return render(request, "escucharfamili.html")
+
+
+# escribiranimals
+def escribiranumals(request):
+    return render(request, "escribiranumals.html")
+
+# leeraniamls
+def leeranimals(request):
+    return render(request, "leeranimals.html")
+
+# escucharanimals
+def escucharanimals(request):
+    return render(request, "escucharanimals.html")

@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing Activity - My Farm</title>
+    <link rel="stylesheet" href="{% static 'css/stl4.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        .flex-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .glossary {
+            flex: 1;
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .activity {
+            flex: 2;
+        }
+
+        .glossary h3 {
+            margin-top: 0;
+        }
+
+        .styled-list {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        input[type="text"] {
+            width: 100px;
+            padding: 5px;
+            margin: 3px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Writing Activity - My Farm</h2>
+
+    <div class="flex-container">
+        <!-- Glosario -->
+        <div class="glossary">
+            <h3>Glossary</h3>
+            <ul class="styled-list">
+                <li>Cow</li>
+                <li>Pig</li>
+                <li>Dog</li>
+                <li>Bird</li>
+                <li>Duck</li>
+            </ul>
+        </div>
+
+        <!-- Actividad -->
+        <div class="activity">
+            <p>My name is Ana and I have a farm. On my farm, there is a <input type="text" id="s1"> that gives us milk. There is also a <input type="text" id="s2"> that says "oink oink" and loves to roll in the mud.</p>
+            <p>We have a <input type="text" id="s3"> that barks a lot and helps me take care of the animals. In the sky, I can see a <input type="text" id="s4"> flying. And in the pond, there is always a <input type="text" id="s5"> swimming with its ducklings.</p>
+
+            <button onclick="checkAnswers()">Check Answers</button>
+            <p id="resultselect"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function checkAnswers() {
+        const respuestas = [
+            "cow",
+            "pig",
+            "dog",
+            "bird",
+            "duck"
+        ];
+
+        let correctas = 0;
+        let resultados = [];
+
+        for (let i = 1; i <= respuestas.length; i++) {
+            let respuestaUsuario = document.getElementById('s' + i).value.trim().toLowerCase();
+            if (respuestaUsuario === respuestas[i - 1]) {
+                correctas++;
+                resultados.push(`✅ Question ${i}: Correct`);
+            } else {
+                resultados.push(`❌ Question ${i}: Incorrect (Correct: ${respuestas[i - 1]})`);
+            }
+        }
+
+        if (correctas === respuestas.length) {
+            Swal.fire({
+                title: "Your Results",
+                width: 600,
+                padding: "3em",
+                color: "#716add",
+                background: "#fff url(https://sweetalert2.github.io/images/trees.png)",
+                backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("https://sweetalert2.github.io/images/nyan-cat.gif")
+                    left top
+                    no-repeat
+                `,
+                html: resultados.join("<br>"),
+                icon: "info"
+            });
+        } else {
+            Swal.fire({
+                title: "Keep Trying!",
+                text: `You got ${correctas} out of ${respuestas.length} correct.`,
+                icon: "warning",
+                confirmButtonText: "Ok"
+            });
+        }
+    }
+</script>
+
+</body>
+</html>
